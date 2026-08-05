@@ -1,6 +1,6 @@
 # Preprocessing
 
-Portable preprocessing scripts for spatial splitting, raster normalization,
+Preprocessing scripts for spatial splitting, raster normalization,
 point-feature extraction, and multiscale patch extraction.
 
 ## Contents
