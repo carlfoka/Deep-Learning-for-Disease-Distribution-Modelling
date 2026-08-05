@@ -38,28 +38,8 @@ for positive variables that have not already been log-transformed.
 
 All rasters used together must have the same CRS, transform, width, and height.
 
-### 2. Create the spatial CV and external-test split
 
-```bash
-python preprocessing/spatial_cross_validation.py \
-  --presence-csv data/raw/presences.csv \
-  --background-gpkg data/raw/background.gpkg \
-  --background-layer background_points \
-  --output-gpkg outputs/spatial_splits.gpkg \
-  --test-csv data/processed/splits/test_split.csv \
-  --cv-csv data/processed/splits/cv_split.csv \
-  --overwrite
-```
-
-The defaults use 50 spherical clusters, five fixed test clusters, ten CV folds,
-a seed of 42, and a 300 km test-presence buffer. CV points inside that buffer
-are excluded from the exported CV CSV to reduce spatial leakage. Use
-`--keep-buffer-in-cv` only if you intentionally want to retain them.
-
-The presence CSV defaults to `Longitude` and `Latitude`. The background layer
-must be a WGS84 point layer.
-
-### 3. Extract point features
+### 2. Extract point features
 
 Run once for CV and once for test:
 
@@ -79,7 +59,7 @@ The extractor preserves the input metadata columns and adds one feature column
 per raster. Coordinates are assumed to be EPSG:4326 and are reprojected to the
 raster CRS when required.
 
-### 4. Extract CNN patches
+### 3. Extract CNN patches
 
 Run separately for CV and test so their arrays remain isolated:
 
@@ -119,8 +99,4 @@ For the scale-based models, use `cv/scale_33` and `test/scale_33` for the
 multiscale model, and the matching `scale_3`, `scale_13`, or `scale_33`
 directories for each single-scale model.
 
-## Data and generated outputs
 
-Do not commit large rasters, NumPy arrays, Parquet files, GeoPackages, or model
-outputs directly to Git unless the repository uses Git LFS or DVC. Keep the
-commands and normalization statistics needed to reproduce them.
