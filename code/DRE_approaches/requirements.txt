@@ -1,0 +1,8 @@
+jupyter
+matplotlib
+numpy
+pandas
+rasterio
+scikit-learn
+torch
+tqdm

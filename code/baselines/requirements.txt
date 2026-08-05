@@ -1,0 +1,8 @@
+elapid
+numpy
+pandas
+pyarrow
+rasterio
+scikit-learn
+torch
+tqdm
