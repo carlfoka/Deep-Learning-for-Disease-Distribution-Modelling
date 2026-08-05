@@ -7,8 +7,6 @@ This folder contains three runnable baselines for ecological niche modelling:
 - `mlp_dre.py`: pixel-level MLP density-ratio estimator.
 - `baseline_metrics.py`: shared ROC AUC and continuous Boyce metrics.
 
-The scripts contain no machine-specific paths. Input and output locations are
-supplied through command-line arguments.
 
 ## Installation
 
@@ -80,12 +78,4 @@ outputs/baselines/
 └── mlp_dre/
 ```
 
-Use `--output-dir` to change the location. Generated files should usually be
-excluded from Git and regenerated from the code and documented input data.
 
-## Mapping assumptions
-
-Random Forest and MaxEnt assume that input rasters are already standardized in
-the same way as the point-feature data. Each raster filename stem must match a
-training feature name, and all rasters and the land mask must share the same
-grid and coordinate reference system.
