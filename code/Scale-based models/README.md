@@ -77,15 +77,3 @@ Use `--output-dir PATH` to override the default location under
 `outputs/scale_based_models/`. Run `python FILE.py --help` for the complete
 command-line interface.
 
-## Outputs
-
-Each run writes fold checkpoints, fold AUCs and ensemble weights, out-of-fold
-scores, and external-test predictions to its output directory. Generated
-models and arrays should usually be excluded from Git and reproduced from the
-code and data.
-
-## Reproducibility note
-
-The random seed and training hyperparameters remain defined near the top of
-each script. Record any changes when reporting results. Exact results can still
-vary between CPU, CUDA, and Apple MPS backends.
